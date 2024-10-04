@@ -1,6 +1,6 @@
 #Analysing IMDB Dataset using KNN Classifier
 
-#Traing Data
+#Importing Dataset
 import pandas as pd
 
 train_df = pd.read_csv('https://raw.githubusercontent.com/aws-samples/aws-machine-learning-university-accelerated-nlp/master/data/final_project/imdb_train.csv', header=0)
