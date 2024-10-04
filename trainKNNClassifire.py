@@ -59,3 +59,19 @@ def process_text(texts):
         final_text_list.append(final_string)
 
     return final_text_list
+
+#Training - Validation Split
+from sklearn.model_selection import train_test_split
+
+X=train_df[["text"]]
+Y=train_df["label"]
+X_train, X_val, y_train, y_val = train_test_split(X,
+                                                  Y,
+                                                  test_size=0.10,
+                                                  shuffle=True,
+                                                  random_state=324
+                                                 )
+
+print("Processing the text fields")
+train_text_list = process_text(X_train["text"].tolist())
+val_text_list = process_text(X_val["text"].tolist())
