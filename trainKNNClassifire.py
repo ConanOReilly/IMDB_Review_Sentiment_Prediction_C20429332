@@ -103,3 +103,11 @@ X_train = train_text_list
 X_val = val_text_list
 
 pipeline.fit(X_train, y_train.values)
+
+#Test Classifier
+from sklearn.metrics import confusion_matrix, classification_report, accuracy_score
+
+val_predictions = pipeline.predict(X_val)
+print(confusion_matrix(y_val.values, val_predictions))
+print(classification_report(y_val.values, val_predictions))
+print("Accuracy (validation):", accuracy_score(y_val.values, val_predictions))
