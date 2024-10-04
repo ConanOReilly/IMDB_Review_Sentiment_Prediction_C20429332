@@ -75,3 +75,30 @@ X_train, X_val, y_train, y_val = train_test_split(X,
 print("Processing the text fields")
 train_text_list = process_text(X_train["text"].tolist())
 val_text_list = process_text(X_val["text"].tolist())
+
+#Processing Data with Pipeline
+from sklearn.pipeline import Pipeline
+from sklearn.feature_extraction.text import CountVectorizer
+from sklearn.feature_extraction.text import TfidfVectorizer
+from sklearn.neighbors import KNeighborsClassifier
+
+
+import gensim
+from gensim.models import Word2Vec
+
+w2v = gensim.models.Word2Vec()
+pipeline = Pipeline([
+    ('text_vect', CountVectorizer(binary=True,
+    #( 'text_vect', TfidfVectorizer(use_idf=True,
+                                  max_features=10)),
+    ('knn', KNeighborsClassifier())
+                                ])
+
+from sklearn import set_config
+set_config(display='diagram')
+pipeline
+
+X_train = train_text_list
+X_val = val_text_list
+
+pipeline.fit(X_train, y_train.values)
