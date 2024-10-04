@@ -1,4 +1,4 @@
-#Training KNN Classifier on IMDB Dataset
+#Analysing IMDB Dataset using KNN Classifier
 
 #Traing Data
 import pandas as pd
