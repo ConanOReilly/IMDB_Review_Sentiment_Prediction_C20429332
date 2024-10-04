@@ -98,6 +98,7 @@ from sklearn import set_config
 set_config(display='diagram')
 pipeline
 
+#Train Classifier
 X_train = train_text_list
 X_val = val_text_list
 
